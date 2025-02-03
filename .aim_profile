@@ -1,0 +1,10 @@
+{
+  "envs": {
+    "/home/zeus/miniconda3/envs/cloudspace": "3.17.5"
+  },
+  "telemetry": {
+    "enable": true,
+    "warning-shown": true
+  },
+  "user-id": "070d47b0-a226-4fb5-96e0-24170ef15906"
+}
