@@ -1,4 +1,4 @@
-# RAG-EnhancedQA
+# Enhanced RAG for Advanced Question Answering
 
 ## Overview
 This project focuses on implementing and evaluating a **Retrieval-Augmented Generation (RAG)** system, which combines generative language models and information retrieval techniques. Given a question, the system retrieves relevant passages and generates an answer based on those passages. The project explores various RAG approaches to improve retrieval and generation performance, including baseline methods, FAISS-based retrieval, and advanced state-of-the-art methods.
