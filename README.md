@@ -28,6 +28,19 @@ The questions are designed based on particular topics covered in specific texts 
 
 The dataset includes ~13,000 passages, with ~1,700 question-answer pairs for training and ~500 for validation. The test set contains 500 questions where answers must be predicted.
 
+## Example
+For instance, given the question:
+
+> What type of bonds are used to form branches in glycogen?
+
+Instead of generating the answer directly, the RAG approach first retrieves relevant passages. One example passage is:
+
+> **Glycogen Structure and Function**: Glycogen is a molecular polymer of glucose used for energy storage. It is composed of linear chains of glucose molecules linked by α-1,4-glycosidic bonds, with branches formed off the chain via α-1,6-glycosidic bonds. The branches provide additional "free ends" for linear chains, allowing for faster glucose release.
+
+Using this passage, the model generates the following answer:
+
+> α-1,6-glycosidic bonds
+
 ## Methodology
 ### 1. Baseline Model
 - Generates answers using only the question without retrieved passages.
@@ -55,19 +68,6 @@ In this section, we aimed to improve both the **retrieval** and **generative** c
   - **Query Decomposition**: We split the original query into two or three sub-questions using our generative model and performed retrieval on those sub-questions.
 - We observed that these two methods retrieved **complementary documents** in terms of relevance. To leverage their synergy, we **combined** the results from both approaches.
 - Finally, we applied **document reranking** using the **cross-encoder ms-marco-MiniLM-L-6-v** to refine the ranking of retrieved passages.
-
-## Example
-For instance, given the question:
-
-> What type of bonds are used to form branches in glycogen?
-
-Instead of generating the answer directly, the RAG approach first retrieves relevant passages. One example passage is:
-
-> **Glycogen Structure and Function**: Glycogen is a molecular polymer of glucose used for energy storage. It is composed of linear chains of glucose molecules linked by α-1,4-glycosidic bonds, with branches formed off the chain via α-1,6-glycosidic bonds. The branches provide additional "free ends" for linear chains, allowing for faster glucose release.
-
-Using this passage, the model generates the following answer:
-
-> α-1,6-glycosidic bonds
 
 ## Output
 The final output of our model is a CSV file containing two columns:
